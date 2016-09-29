@@ -17,7 +17,7 @@ function fDesign(name, customize, price, image){
 	kumDesign= new fDesign("Kumquat Design", false, 30, "img/kumquat.jpg"),
 	cocoDesign= new fDesign("Coconut Design", true, 30, "img/coconut.jpg"),
 	oraDesign= new fDesign("Orange Design", true, 17, "img/orange.jpg"),
-	pinDesign= new fDesign("Pineapple Design", false, 28, "img/pineapple.png"),
+	avoDesign= new fDesign("Avocado Design", false, 28, "img/avocado.jpg"),
 	pomDesign= new fDesign("Pomegranate Design", true, 24, "img/pomegranate.png"),
 	figDesign= new fDesign("Fig Design", true, 32, "img/fig.jpg"),
 	cheDesign= new fDesign("Cherry Design", true, 21, "img/cherry.png")
@@ -37,9 +37,19 @@ function fDesign(name, customize, price, image){
 
 	//create text to put in elements
 	var tName=document.createTextNode(fruitArray[i].name)
-	var tCustomize=document.createTextNode("Customizable: " + fruitArray[i].customize)
 	var tPrice=document.createTextNode("Price: $" + fruitArray[i].price)
 	var tButton=document.createTextNode("Buy")
+	var tCustomize=document.createTextNode(textCustomize)
+
+	function textCustomize(){
+		if (fruitArray[i].customize==true)
+			 tCustomize=document.createTextNode("Customizable: Yes")
+		else if (fruitArray[i].customize==false)
+			 tCustomize=document.createTextNode("Customizable: No ")
+	}
+	textCustomize()
+
+
 
 	//update source attribute
 	image.src=fruitArray[i].image
